@@ -1,0 +1,23 @@
+{
+    "name": "mox-router",
+    "version": "0.1.0",
+    "description": "Router module within the Mox system",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/TeachBoost/mox-router.git"
+    },
+    "author": "Mike Gioia <mike@particlebits.com> (https://particlebits.com/)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TeachBoost/mox-router/issues"
+    },
+    "homepage": "https://github.com/TeachBoost/mox-router",
+    "dependencies": {
+        "stapes" : "*",
+        "page" : "*"
+    }
+}
