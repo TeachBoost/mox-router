@@ -1,3 +1,3 @@
 # Mox Controller
 
-Controller module within the Mox system.
+Controller module within the Mox system
