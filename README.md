@@ -1,3 +1,3 @@
-# Mox Controller
+# Mox Router
 
-Controller module within the Mox system
+Router module within the Mox system
