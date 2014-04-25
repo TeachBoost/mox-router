@@ -10,15 +10,20 @@ var Router = Stapes.subclass({
 
     constructor: function () {},
 
-    // start the page router
+    // wrapper functions for Page library
+    page: function () {
+        Page.apply( this, arguments );
+    },
+
     start: function () {
-        this.Page.start();
+        Page.start.apply( this, arguments );
+    },
+
+    base: function () {
+        Page.base.apply( this, arguments );
     }
 
 });
-
-// add the Page library
-Router.Page = Page;
 
 // return
 module.exports = Router;
