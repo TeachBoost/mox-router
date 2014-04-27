@@ -2,9 +2,7 @@
  * Test the router module
  */
 
-var chai = require( 'chai' ),
-    expect = chai.expect,
-    Router = require( '../' );
+var expect = chai.expect;
 
 describe( 'Router', function () {
 
@@ -13,15 +11,51 @@ describe( 'Router', function () {
             .to.be.a( 'function' );
     });
 
-    // test some basic properties and their types
-    it( 'should have Page property', function () {
-        expect( Router )
-            .to.have.property( 'Page' );
+    it( 'should instantiate an object', function () {
+        var TestRouter = new Router();
+        expect( TestRouter )
+            .to.be.an( 'object' );
     });
 
-    it( 'should have Page property that is a function', function () {
-        expect ( Router.Page )
+    it( 'objects should have page property that is a function', function () {
+        var TestRouter = new Router();
+        expect ( TestRouter.page )
             .to.be.a( 'function' );
+    });
+
+    it( 'should subclass children with access to .page', function () {
+        // create subclass 
+        var TestRouter = Router.subclass({
+            constructor: function () {},
+            method: function () {
+                return this.page;
+            }
+        });
+        // instantiate
+        var Test = new TestRouter();
+        expect ( Test.method() )
+            .to.be.a( 'function' );
+    });
+
+    it( 'should call controller callback when route is hit', function ( done ) {
+        // create controller
+        var Controller = {
+            example: function ( ctx, next ) {
+                done();
+            }
+        }
+        // create subclass
+        var TestRouter = Router.subclass({
+            constructor: function () {
+                this.setup();
+            },
+            setup: function () {
+                this.page( '/example', Controller.example );
+            }
+        });
+        // instantiate
+        var Test = new TestRouter();
+        Test.page( '/example' );
     });
 
 });

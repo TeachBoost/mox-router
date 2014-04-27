@@ -1,10 +1,11 @@
 {
     "name": "mox-router",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "Router module within the Mox system",
     "main": "index.js",
     "scripts": {
-        "test": "mocha"
+        "build": "browserify --debug -e browserify.js -o ./test/vendor/build.js",
+        "test": "browserify --debug -e browserify.js -o ./test/vendor/build.js && echo 'open http://localhost:3000' && ./node_modules/.bin/serve test/"
     },
     "repository": {
         "type": "git",
@@ -22,6 +23,8 @@
     },
     "devDependencies": {
         "mocha": "*",
-        "chai": "*"
+        "chai": "*",
+        "serve": "*",
+        "browserify" : "*"
     }
 }
