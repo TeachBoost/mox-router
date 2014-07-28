@@ -2,8 +2,8 @@
  * Base Router class
  */
 
-var Stapes = require( 'stapes' ),
-    Page = require( 'page' );
+var Stapes = require( 'stapes' )
+  , Page = require( 'page' );
 
 // base model class subclasses stapes object
 var Router = Stapes.subclass({
